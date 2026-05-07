@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.7350000000000003,
+        "y": 0.7024621212121225
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 4.735,
+        "y": 0.7024621212121227
+      },
+      "isLocked": false,
+      "linkedName": "mr 3"
+    },
+    {
+      "anchor": {
+        "x": 5.8192676767676765,
+        "y": 0.7024621212121225
+      },
+      "prevControl": {
+        "x": 4.8192676767676765,
+        "y": 0.7024621212121225
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "mr 4"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 2.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": true
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "reversed": false,
+  "folder": "Murphy RCitrus Auto",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 75.0
+  },
+  "useDefaultConstraints": true
+}

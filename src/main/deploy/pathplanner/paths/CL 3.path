@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 7.846275252525253,
+        "y": 6.6460606060606064
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 7.844531910502185,
+        "y": 5.596618574127373
+      },
+      "isLocked": false,
+      "linkedName": "CL 2"
+    },
+    {
+      "anchor": {
+        "x": 7.846275252525253,
+        "y": 4.470176767676768
+      },
+      "prevControl": {
+        "x": 7.834704666435902,
+        "y": 5.568945473995527
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "CL 3"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 0.9,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -90.0
+  },
+  "reversed": false,
+  "folder": "Citrus Left Auto",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -90.0
+  },
+  "useDefaultConstraints": false
+}

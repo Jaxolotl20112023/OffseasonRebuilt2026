@@ -1,0 +1,34 @@
+public class LEDCommand extends Command {
+    private final AddressableLEDSubsystem m_ledSubsystem;
+
+    public LEDCommand(AddressableLEDSubsystem ledSubsystem) {
+        this.m_ledSubsystem = ledSubsystem;
+        addRequirements(m_ledSubsystem);
+    }
+    
+    public void execute() {
+        AllianceColor = DriverStation.getAlliance();
+        m_shooterspeed = m_shooterSubsystem.getShooterSpeed(); // Get the current shooter speed
+        m_intakespeed = m_intakeSubsystem.getIntakeSpeed(); // Get the current intake speed
+    
+    if (m_shooterspeed > 0 && AllianceColor == DriverStation.Alliance.Red) {
+        m_ledSubsystem.setColor(255, 0, 0); 
+        LEDPattern.solid(teamColor).blink(0.1).applyTo(m_ledSubsystem.getBuffer());
+    } else if (m_shooterspeed > 0 && AllianceColor == DriverStation.Alliance.Blue) {
+        m_ledSubsystem.setColor(0, 0, 255);
+        LEDPattern.solid(teamColor).blink(0.1).applyTo(m_ledSubsystem.getBuffer());
+    } else if (m_intakespeed > 0 && AllianceColor == DriverStation.Alliance.Blue) {
+        m_ledSubsystem.setColor(0, 0, 255);
+        LEDPattern.solid(teamColor).scrolling(0.1).applyTo(m_ledSubsystem.getBuffer());
+    } else if (m_intakespeed > 0 && AllianceColor == DriverStation.Alliance.Red) {
+        m_ledSubsystem.setColor(255, 0, 0);
+        LEDPattern.solid(teamColor).scrolling(0.1).applyTo(m_ledSubsystem.getBuffer());
+    } else if (m_shooterspeed == 0 && m_intakespeed == 0 && AllianceColor == DriverStation.Alliance.Red) {
+        m_ledSubsystem.setColor(0, 255, 0);
+    } else if (m_shooterspeed == 0 && m_intakespeed == 0 && AllianceColor == DriverStation.Alliance.Blue) {
+        m_ledSubsystem.setColor(0, 0, 255);
+    }
+     else {
+        m_ledSubsystem.setColor(0, 0, 0); // Turn off LEDs if no conditions are met
+     }
+        

@@ -1,0 +1,59 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 7.6997627520759195,
+        "y": 5.2
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 6.430177935949537,
+        "y": 6.213736654799262
+      },
+      "isLocked": false,
+      "linkedName": "MLA 5 NEW"
+    },
+    {
+      "anchor": {
+        "x": 2.0,
+        "y": 5.355
+      },
+      "prevControl": {
+        "x": 2.944199288256229,
+        "y": 5.6112218268090155
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "MLA 3"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5853018372703415,
+      "rotationDegrees": 0.0
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 2.0,
+    "maxAcceleration": 3.14,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0.0,
+    "rotation": -31.250000000000004
+  },
+  "reversed": false,
+  "folder": "Murphy Left Auto",
+  "idealStartingState": {
+    "velocity": 0.0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": false
+}

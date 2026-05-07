@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 7.720303030303031,
+        "y": 7.012525252525253
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 7.720303030303031,
+        "y": 6.012525252525253
+      },
+      "isLocked": false,
+      "linkedName": "mc 1 end"
+    },
+    {
+      "anchor": {
+        "x": 7.720303030303031,
+        "y": 4.355656565656567
+      },
+      "prevControl": {
+        "x": 7.720303030303031,
+        "y": 5.355656565656567
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "mc 2 end"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 0.9,
+    "maxAcceleration": 2.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -90.0
+  },
+  "reversed": false,
+  "folder": "Murphy Citrus Auto",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -90.0
+  },
+  "useDefaultConstraints": false
+}

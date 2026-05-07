@@ -1,0 +1,50 @@
+{
+  "robotWidth": 0.762,
+  "robotLength": 0.61,
+  "holonomicMode": true,
+  "pathFolders": [
+    "Better Left Auto",
+    "Better Right Auto",
+    "Bottom Auto",
+    "Citrus Auto",
+    "Citrus Left Auto",
+    "Left Auto Paths",
+    "Middle Auto Paths",
+    "Murphy Citrus Auto",
+    "Murphy Left Auto",
+    "Murphy RCitrus Auto",
+    "Right Auto Paths",
+    "Simple Left"
+  ],
+  "autoFolders": [
+    "Competition Autos",
+    "Testing Autos"
+  ],
+  "defaultMaxVel": 2.0,
+  "defaultMaxAccel": 3.0,
+  "defaultMaxAngVel": 540.0,
+  "defaultMaxAngAccel": 720.0,
+  "defaultNominalVoltage": 12.0,
+  "robotMass": 45.0,
+  "robotMOI": 6.883,
+  "robotTrackwidth": 0.546,
+  "driveWheelRadius": 0.051,
+  "driveGearing": 6.2,
+  "maxDriveSpeed": 4.98,
+  "driveMotorType": "krakenX60",
+  "driveCurrentLimit": 50.0,
+  "wheelCOF": 1.0,
+  "flModuleX": 0.244,
+  "flModuleY": 0.321,
+  "frModuleX": 0.244,
+  "frModuleY": -0.321,
+  "blModuleX": -0.244,
+  "blModuleY": 0.321,
+  "brModuleX": -0.244,
+  "brModuleY": -0.321,
+  "bumperOffsetX": 0.0,
+  "bumperOffsetY": 0.0,
+  "robotFeatures": [
+    "{\"name\":\"Rectangle\",\"type\":\"rounded_rect\",\"data\":{\"center\":{\"x\":0.1,\"y\":0.0},\"size\":{\"width\":0.2,\"length\":0.2},\"borderRadius\":0.05,\"strokeWidth\":0.02,\"filled\":false}}"
+  ]
+}

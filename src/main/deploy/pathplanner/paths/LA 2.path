@@ -1,0 +1,75 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 7.610128388017117,
+        "y": 5.749372325249644
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 8.610128388017117,
+        "y": 5.749372325249644
+      },
+      "isLocked": false,
+      "linkedName": "SGIMa1"
+    },
+    {
+      "anchor": {
+        "x": 3.366248216833095,
+        "y": 5.412967189728959
+      },
+      "prevControl": {
+        "x": 5.16472182596291,
+        "y": 5.244764621968616
+      },
+      "nextControl": {
+        "x": 1.9150229654815072,
+        "y": 5.548693292373352
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.836277777777778,
+        "y": 7.601466666666667
+      },
+      "prevControl": {
+        "x": 2.836277777777778,
+        "y": 7.601466666666667
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "LA2E"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.9509594882729174,
+      "rotationDegrees": 0.0
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 2.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -62.58527392032879
+  },
+  "reversed": false,
+  "folder": "Left Auto Paths",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": true
+}

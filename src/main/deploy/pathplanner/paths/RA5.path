@@ -1,0 +1,61 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.5197432239657629,
+        "y": 0.4703994293865924
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.5197432239657624,
+        "y": 0.4703994293865922
+      },
+      "isLocked": false,
+      "linkedName": "RA4"
+    },
+    {
+      "anchor": {
+        "x": 3.2239229671897287,
+        "y": 0.6774179743223976
+      },
+      "prevControl": {
+        "x": 2.2239229671897287,
+        "y": 0.6774179743223977
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [
+    {
+      "name": "Intake Balls",
+      "waypointRelativePos": 0.6293045239702849,
+      "endWaypointRelativePos": null,
+      "command": null
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 2.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 69.67686317033699
+  },
+  "reversed": false,
+  "folder": "Right Auto Paths",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 180.0
+  },
+  "useDefaultConstraints": true
+}

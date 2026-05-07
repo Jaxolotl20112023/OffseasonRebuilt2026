@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 5.755933333333334,
+        "y": 2.1932999999999994
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.855766666666667,
+        "y": 2.2225333333333332
+      },
+      "isLocked": false,
+      "linkedName": "YY"
+    },
+    {
+      "anchor": {
+        "x": 1.6730111111111112,
+        "y": 2.144577777777777
+      },
+      "prevControl": {
+        "x": 3.0859555555555556,
+        "y": 2.1640666666666664
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "RAOA 2E"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 2.0,
+    "maxAcceleration": 2.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 32.7061617939548
+  },
+  "reversed": false,
+  "folder": "Right Auto Paths",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -1.8476102659945477
+  },
+  "useDefaultConstraints": false
+}

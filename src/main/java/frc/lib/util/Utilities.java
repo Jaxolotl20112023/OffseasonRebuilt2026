@@ -1,0 +1,121 @@
+package frc.lib.util;
+
+import edu.wpi.first.math.util.Units;
+import edu.wpi.first.units.Unit;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
+
+public class Utilities {
+    public static double polynomialAccleration(double x) {
+        return Math.pow(x,3) * 0.88 + Math.pow(x,2) * 0.12;
+    }
+
+    public static double fastPolynomialAcceleration(double x) {
+        return 0.94848 * Math.pow(x,3) + 0.0749389 * x;
+    }
+    
+    public static double supaHotFireAcceleration(double x) {
+        if(x < 0) {
+            return -(-2.17901 * Math.pow(x,3) + 3.27468 * Math.pow(x,2) - 0.0962891 * x + 0.000671109);
+        } else {
+            return (-2.17901 * Math.pow(x,3) + 3.27468 * Math.pow(x,2) - 0.0962891 * x + 0.000671109);
+        }
+    }
+    
+    // keep drive values within the range of -1 and 1 
+    public static double clampDriveValues(double driveInput) {
+        driveInput = Math.min(1, Math.max(-1, driveInput));
+        return driveInput; 
+    }
+
+    // convert from -180 to 180 range to raw 360 range
+    public static double convertYawReadings(double reading) {
+        double processedReading = reading % 360;
+        if(processedReading > 180) {
+            processedReading = processedReading - 360;
+        }
+        return processedReading;
+    }
+
+    public static double processYaw(double yaw) {
+        if(yaw < 0) {
+            return 360 - (Math.abs(yaw) % 360);
+        } else {
+            return yaw % 360;
+        }
+    }
+
+    public static double calculateYawToCenterPiece(double x, double y) {
+      //  if(DriverStation.getAlliance().get().equals(Alliance.Blue)) {
+            var yaw = Math.atan((4 - y)/(4.6 - x));
+            return Units.radiansToDegrees(yaw);
+        // }
+        // return 0; 
+    }
+
+    public static double calculateDistanceToCenterPiece(double x, double y) {
+        double t = 0; 
+        if(DriverStation.getAlliance().get() != null && DriverStation.getAlliance().get().equals(Alliance.Red)) {
+                t = Math.pow(4 - x,2) + Math.pow(11.895 - y,2);
+        } else {
+            t = Math.pow(4 - x,2) + Math.pow(4.6 - y,2);
+        }
+        t = Math.pow(t, 0.5);
+        return t;
+
+    }
+
+    public static double rpsToRpm(double rps) {
+        return rps * 60;
+    }
+
+    public static double rpmToRps(double rpm) {
+        return rpm / 60;
+    }
+
+    public static double calculcateSinsoidalBackSpinSpeed(double distance) {
+        return 4.22357 * Math.sin(1.03079 * distance - 2.76381) + 4.08863;
+    }
+
+    public static double calculateLogisticBackSpinSpeed(double distance) {
+        return 6.52329/(1+ Math.pow(Math.E, -(3.08924 * distance - 7.65526)));
+    }
+
+    public static double calculateQuadraticBackSpinSpeed(double distance) {
+        return 1.35152 * Math.pow(distance, 2) - 2.58305 * distance + 1.12609;
+    }
+
+    public static double calculateCubicBackSpinSpeed(double distance) {
+        return -0.000337691 * Math.pow(distance, 3) + 0.0925936 * Math.pow(distance, 2) - 7.40919 * distance + 203.02214;
+    }
+
+    public static double calculcateQuarticBackSpinSpeed(double distance) {
+        return -0.428904 * Math.pow(distance, 4) + 2.87266 * Math.pow(distance, 3) - 5.10529 * Math.pow(distance, 2) + 2.98684 * distance - 0.36699;
+    }
+
+
+
+    public static double calculateLogisticShooterSpeed(double distance) {
+        return (5.52156 * Math.pow(10,53))/(1 + Math.pow(Math.E, -(0.113506 * distance - 120.20819)));
+    }
+
+    public static double calculateQuadraticShooterSpeed(double distance) {
+        return Math.pow(distance, 2) * 0.883916 + 1.5429 * distance + 36.15291; 
+    }
+
+    public static double calculateLinearShooterSpeed(double distance) {
+        return 4.78545 * distance + 33.73161;
+    }
+
+    public static double calculateQuarticShooterSpeed(double distance) {
+        return 0.656412 * Math.pow(distance, 4) - 6.39979 * Math.pow(distance, 3) + 21.82393 * Math.pow(distance, 2) - 25.12035 * distance + 46.85814;
+    }
+
+    public static double calculateCubicShooterSpeed(double distance) {
+        return 0.000117906 * Math.pow(distance, 3) - 0.03462 * Math.pow(distance, 2) + 3.07143 * distance - 44.92968;
+    }
+
+    public static double calculateShooterSpeed(double distance) {
+        return 40 / (1 + Math.pow(Math.E, -(41.11991 * distance - 20.45987)));
+    }
+}

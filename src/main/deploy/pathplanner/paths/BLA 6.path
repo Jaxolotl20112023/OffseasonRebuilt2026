@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.4294888888954689,
+        "y": 7.098644444437095
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 0.42948888889546893,
+        "y": 6.098644444437095
+      },
+      "isLocked": false,
+      "linkedName": "BLA 5"
+    },
+    {
+      "anchor": {
+        "x": 0.429,
+        "y": 5.042777777777778
+      },
+      "prevControl": {
+        "x": 0.42899999999999994,
+        "y": 6.042777777777778
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "BLA 6"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 1.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0.4,
+    "rotation": -90.0
+  },
+  "reversed": false,
+  "folder": "Better Left Auto",
+  "idealStartingState": {
+    "velocity": 0.5,
+    "rotation": -90.0
+  },
+  "useDefaultConstraints": false
+}

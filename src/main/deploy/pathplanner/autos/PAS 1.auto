@@ -1,0 +1,23 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+<<<<<<< HEAD:src/main/deploy/pathplanner/autos/PAS 1.auto
+            "pathName": "PAS 1"
+=======
+            "pathName": "Main Autonomous"
+>>>>>>> 43721b3c8c9f936a3eaeb5ecc749527f682065e8:src/main/deploy/pathplanner/autos/Main Autonomous.auto
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": "Testing Autos",
+  "choreoAuto": false
+}

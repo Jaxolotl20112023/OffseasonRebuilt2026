@@ -1,0 +1,59 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 7.866888888888889,
+        "y": 3.742744444444444
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 6.929655555555557,
+        "y": 3.299322222222222
+      },
+      "isLocked": false,
+      "linkedName": "BRA 3"
+    },
+    {
+      "anchor": {
+        "x": 2.4752777777777784,
+        "y": 1.636488888888889
+      },
+      "prevControl": {
+        "x": 2.1024000000000003,
+        "y": 1.6465666666666663
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "BRA 4"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.48780487804878103,
+      "rotationDegrees": 90.0
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 1.5,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0.5,
+    "rotation": 39.95754893082912
+  },
+  "reversed": false,
+  "folder": "Better Right Auto",
+  "idealStartingState": {
+    "velocity": 1.0,
+    "rotation": 90.0
+  },
+  "useDefaultConstraints": false
+}
