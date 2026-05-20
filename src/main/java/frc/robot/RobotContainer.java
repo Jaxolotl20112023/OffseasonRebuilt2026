@@ -140,8 +140,8 @@ public class RobotContainer {
         // driver1.pov(270).toggleOnFalse(new InstantCommand(() -> s_intake.setOverride(false)));
 
 
-        driver1.rightTrigger().toggleOnTrue(new InstantCommand(() -> s_intake.setOverride(true)));
-        driver1.rightTrigger().toggleOnFalse(new InstantCommand(() -> s_intake.setOverride(false)));
+        // driver1.rightTrigger().toggleOnTrue(new InstantCommand(() -> s_intake.setOverride(true)));
+        // driver1.rightTrigger().toggleOnFalse(new InstantCommand(() -> s_intake.setOverride(false)));
 
         driver1.b().onTrue(c_intakeCommand.setIntakeState(IntakeStates.OUTAKE));
         driver1.b().onFalse(c_intakeCommand.setIntakeState(IntakeStates.START));
