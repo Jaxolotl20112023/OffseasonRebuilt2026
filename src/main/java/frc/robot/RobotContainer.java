@@ -90,7 +90,7 @@ public class RobotContainer {
     private final YawSwerveAlign c_leftScore = new YawSwerveAlign(drivetrain, driver0, 284);
     private final YawSwerveAlign c_rightScore = new YawSwerveAlign(drivetrain, driver0, 76);
     private final VisionSubsystem limelight = new VisionSubsystem(drivetrain, "limelight-four");
-    private final LimeLightAlign c_visionAlign = new LimeLightAlign(drivetrain, driver0, limelight.getTagYaw());
+    private final LimeLightAlign c_visionAlign = new LimeLightAlign(drivetrain, driver0);
 
     private final PivotShake c_pivotShake = new PivotShake(s_intake);
     private final RepeatCommand c_gigaShake = 
@@ -208,6 +208,7 @@ public class RobotContainer {
         // Return to normal after positioning
         driver0.leftTrigger().toggleOnTrue(c_zeroHome);
         driver0.leftTrigger().toggleOnFalse(c_teleop);
+        
         driver0.a().onTrue(c_visionAlign); 
         driver0.a().onFalse(c_teleop);
 

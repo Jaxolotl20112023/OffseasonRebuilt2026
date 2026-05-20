@@ -26,6 +26,7 @@ import frc.lib.util.Utilities;
 public class LimeLightAlign extends Command {
     private final CommandSwerveDrivetrain drivetrain;
     private final CommandXboxController controller;
+    private final VisionSubsystem limelight; 
 
     // Set max speeds for swerve driving and deadband
     private final double MaxSpeed = TunerConstants.kSpeedAt12Volts.in(MetersPerSecond);
@@ -52,11 +53,11 @@ public class LimeLightAlign extends Command {
     // State of robot
     private Pose2d swerveState; 
 
-    public LimeLightAlign(CommandSwerveDrivetrain drivetrain, CommandXboxController controller, double yaw) {
+    public LimeLightAlign(CommandSwerveDrivetrain drivetrain, CommandXboxController controller) {
         // Initialize drivetrain and controller
         this.drivetrain = drivetrain; 
         this.controller = controller;
-        this.yaw = yaw; 
+        this.limelight = new VisionSubsystem(drivetrain, "limelight-four");
 
         // Intialize controller inputs to 0
         xInput = 0; 
@@ -80,17 +81,19 @@ public class LimeLightAlign extends Command {
 
         // swerveState = drivetrain.getState().Pose; 
 
-        desiredYaw = yaw;
+        try {
+            yaw = limelight.getTagYaw();
+        }
+        catch (NullPointerException n) {
+            SmartDashboard.putBoolean(getSubsystem()+" Tag Yaw Exception", true);
+            return;
+        }
 
         // if (swerveState.getX() > 2.46 ) {
         //     desiredYaw = yaw; //+ Utilities.processYaw(drivetrain.getPigeon2().getYaw().getValueAsDouble()); 
         // } else if (swerveState.getX() < 2.46 ){
         //     desiredYaw = yaw; //+ Utilities.processYaw(drivetrain.getPigeon2().getYaw().getValueAsDouble()); 
         // }
-
-        
-
-
 
         // Set contoller speeds 
         xInput = -controller.getLeftY();
@@ -99,7 +102,7 @@ public class LimeLightAlign extends Command {
         
         // Set setpoint depending on desired yaw to center tag
         swerveState = drivetrain.getState().Pose;
-        c_yawPID.setSetpoint(desiredYaw);
+        c_yawPID.setSetpoint(yaw);
 
         // Apply polynomial acceleration
         setSwerveSpeeds();
