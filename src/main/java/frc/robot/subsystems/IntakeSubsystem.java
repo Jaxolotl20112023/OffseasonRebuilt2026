@@ -7,6 +7,7 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.config.SparkBaseConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 import edu.wpi.first.math.controller.ArmFeedforward;
@@ -35,7 +36,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
     // PID controller to maintain pivot angle
     private final PIDController c_pivotPID;
-    private final ArmFeedforward c_ArmFeedforward; 
+    // private final ArmFeedforward c_ArmFeedforward; 
     
     // Current intake state
     private IntakeStates i_state;
@@ -66,7 +67,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
         // Initialize PID controller for pivot
         c_pivotPID = new PIDController(Constants.Intake.kIntakeP, Constants.Intake.kIntakeI, Constants.Intake.kIntakeD);
-        c_ArmFeedforward = new ArmFeedforward(0, 0.012, 0.25);
+        // c_ArmFeedforward = new ArmFeedforward(0, 0.028, 0.25);
 
         // Start intake in STOP position
         i_state = IntakeStates.STOP;
@@ -85,14 +86,11 @@ public class IntakeSubsystem extends SubsystemBase {
     @Override
     public void periodic() { 
 
-        pivotSpeed = c_pivotPID.calculate(getPiviotPosition()) 
-            + c_ArmFeedforward.calculate(Units.degreesToRadians(getPiviotPosition()), pivotEncoder.getVelocity().getValueAsDouble());
+        pivotSpeed = c_pivotPID.calculate(getPiviotPosition()) ;
+            // + c_ArmFeedforward.calculate(Units.degreesToRadians(getPiviotPosition()), pivotEncoder.getVelocity().getValueAsDouble());
 
         // leftPivotSpeed = c_pivotPID.calculate(getLeftPiviotPosition()) 
-            // + c_ArmFeedforward.calculate(Units.degreesToRadians(getLeftPiviotPosition()), leftPivotEncoder.getVelocity().getValueAsDouble());
-
-
-        
+            // + c_ArmFeedforward.calculate(Units.degreesToRadians(getLeftPiviotPosition()), leftPivotEncoder.getVelocity().getValueAsDouble())  
 
         if(pivotSpeed < 0) {
             pivotSpeed *= 0.65;
@@ -107,11 +105,14 @@ public class IntakeSubsystem extends SubsystemBase {
             // leftPivotSpeed = -0.2; 
         }
 
-        if (getPiviotPosition() > Constants.Intake.kMin || getPiviotPosition() < Constants.Intake.kMax) {
-            m_pivot.set(0);
-        } else {
-            m_pivot.set(pivotSpeed);
-        }
+        // if (getPiviotPosition() < Constants.Intake.kMin || getPiviotPosition() > Constants.Intake.kMax) {
+        //     m_pivot.set(0);
+        //     SmartDashboard.putBoolean(getName() + " disabled", true);
+        // } else {
+        m_pivot.set(pivotSpeed);
+            // SparkMaxUtils.setSparkMaxBusUsage(m_pivot, SparkMaxUtils.Usage.kAll, IdleMode.kCoast, false, false);
+        // }
+
         // m_leftPivot.set(leftPivotSpeed);
         setDashboardData();
     }
@@ -143,7 +144,7 @@ public class IntakeSubsystem extends SubsystemBase {
     //   }
 
     // Disable susbystem if needed
-    void disableSubsystem() {
+    public void disableSubsystem() {
         m_rightIntake.disable();
         m_leftIntake.disable();
         m_pivot.disable();
