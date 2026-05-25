@@ -1,5 +1,8 @@
 package frc.robot;
 
+import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.util.Units;
 
 public class Constants {
@@ -11,6 +14,13 @@ public class Constants {
         public static final double kSwerveD = 0; 
 
         public static final double kYawTranslationLimiter = 0.4; 
+
+        public static final Translation2d m_front_left = new Translation2d(Units.inchesToMeters(14.5),Units.inchesToMeters(14.5)); 
+        public static final Translation2d m_front_right = new Translation2d(Units.inchesToMeters(14.5),Units.inchesToMeters(-14.5));
+        public static final Translation2d m_back_left = new Translation2d(Units.inchesToMeters(-14.5),Units.inchesToMeters(14.5));
+        public static final Translation2d m_back_right = new Translation2d(Units.inchesToMeters(-14.5),Units.inchesToMeters(-14.5));
+
+        public static final int pigeon_id = 0;
     }
 
     public class Shooter {
@@ -46,7 +56,7 @@ public class Constants {
     public class Indexor {
         // REV SparkMax 
         public static final int kIndexorID = 33;
-        public static final int kConveyorID = 31;
+        public static final int kConveyorID = 31; // 30
     }
 
     public class Intake{
@@ -55,17 +65,17 @@ public class Constants {
         public static final int kRightIntakeID = 35; 
 
         // REV SparkMax
-        public static final int kPivotID = 30;
+        public static final int kPivotID = 30; // 30
 
         // CTRE Through Bore Encoder 
         public static final int kEncoderID = 23;
 
         // Max and Min
-        public static final int kMax = -322; 
-        public static final int kMin = -200;
+        public static final int kMin = -322; 
+        public static final int kMax = -208;
 
         // PID values
-        public static final double kIntakeP = 0.03; // 0.03
+        public static final double kIntakeP = 0.09; // 0.03
         public static final double kIntakeI = 0;
         public static final double kIntakeD = 0;
     
@@ -93,8 +103,18 @@ public class Constants {
     public class AddressableLED {
         public static final int firstBlinkIn = 0; 
         
-        
     }
+
+    public static class FieldPoseConstants { 
+
+    public static final Pose2d hubPose = new Pose2d(
+      new Translation2d(492.88,144.84), 
+      new Rotation2d(0,0)
+    ); 
+
+  }
+
+
 }
 //     public class LED {
 //     private static final double SOLID_BLUE = 0.87;
