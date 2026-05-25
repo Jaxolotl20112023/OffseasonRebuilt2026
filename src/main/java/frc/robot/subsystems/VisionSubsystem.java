@@ -17,9 +17,9 @@ public class VisionSubsystem extends SubsystemBase {
     private final CommandSwerveDrivetrain drivetrain; 
 
     private static LimelightHelpers.PoseEstimate s_poseEstimate; 
-    private static String limelightName; 
+    private String limelightName; 
     
-    private static double robotYaw;
+    private double robotYaw;
     public static double tag_distance; 
     public static int leastAmbiguity;
 
@@ -31,16 +31,15 @@ public class VisionSubsystem extends SubsystemBase {
 
         this.robotYaw = 0; 
 
-        LimelightHelpers.setPipelineIndex(limelightName, 0);
-
+        LimelightHelpers.setPipelineIndex(limelightName, 1); // pipeline 1 will be used for 3D Vision
     }
 
-    @Override
-    public void periodic() {
+    // @Override
+    // public void periodic() {
 
-        s_poseEstimate = LimelightHelpers.getBotPoseEstimate_wpiRed(limelightName);  // before was megatag 2 blue
-        megaTag2();
-    }
+    //     s_poseEstimate = LimelightHelpers.getBotPoseEstimate_wpiRed(limelightName);  // before was megatag 2 blue
+    //     megaTag2();
+    // }
 
     // public void megaTag1() {
 
