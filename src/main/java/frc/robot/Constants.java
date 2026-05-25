@@ -1,5 +1,8 @@
 package frc.robot;
 
+import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.util.Units;
 
 public class Constants {
@@ -11,6 +14,13 @@ public class Constants {
         public static final double kSwerveD = 0; 
 
         public static final double kYawTranslationLimiter = 0.4; 
+
+        public static final Translation2d m_front_left = new Translation2d(Units.inchesToMeters(14.5),Units.inchesToMeters(14.5)); 
+        public static final Translation2d m_front_right = new Translation2d(Units.inchesToMeters(14.5),Units.inchesToMeters(-14.5));
+        public static final Translation2d m_back_left = new Translation2d(Units.inchesToMeters(-14.5),Units.inchesToMeters(14.5));
+        public static final Translation2d m_back_right = new Translation2d(Units.inchesToMeters(-14.5),Units.inchesToMeters(-14.5));
+
+        public static final int pigeon_id = 0;
     }
 
     public class Shooter {
@@ -93,8 +103,18 @@ public class Constants {
     public class AddressableLED {
         public static final int firstBlinkIn = 0; 
         
-        
     }
+
+    public static class FieldPoseConstants { 
+
+    public static final Pose2d hubPose = new Pose2d(
+      new Translation2d(492.88,144.84), 
+      new Rotation2d(0,0)
+    ); 
+
+  }
+
+
 }
 //     public class LED {
 //     private static final double SOLID_BLUE = 0.87;
