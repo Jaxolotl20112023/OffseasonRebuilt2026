@@ -44,6 +44,7 @@ import frc.robot.commands.IndexCommand;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.LimeLightAlign;
 import frc.robot.commands.PivotShake;
+import frc.robot.commands.PoseAlign;
 import frc.robot.commands.ShooterCommand;
 import frc.robot.commands.SwerveTeleop;
 import frc.robot.commands.YawSwerveAlign;
@@ -53,6 +54,7 @@ import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.IndexSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
+import frc.robot.subsystems.Simulation;
 import frc.robot.subsystems.VisionSubsystem;
 import frc.robot.subsystems.VisionSubsystem1;
 
@@ -90,7 +92,9 @@ public class RobotContainer {
     private final YawSwerveAlign c_leftScore = new YawSwerveAlign(drivetrain, driver0, 284);
     private final YawSwerveAlign c_rightScore = new YawSwerveAlign(drivetrain, driver0, 76);
     private final VisionSubsystem limelight = new VisionSubsystem(drivetrain, "limelight-four");
-    private final LimeLightAlign c_visionAlign = new LimeLightAlign(drivetrain, driver0);
+    // private final LimeLightAlign c_visionAlign = new LimeLightAlign(drivetrain, driver0);
+    private final PoseAlign c_pose_align = new PoseAlign(drivetrain, driver0); 
+    private final Simulation simulation = new Simulation(drivetrain); 
 
     private final PivotShake c_pivotShake = new PivotShake(s_intake);
     private final RepeatCommand c_gigaShake = 
@@ -100,7 +104,6 @@ public class RobotContainer {
                                     new WaitCommand(0.4)).repeatedly();               
     private SendableChooser<Command> m_chooser;
     private final AddressableLEDSubsystem addressableLEDSubsystem = new AddressableLEDSubsystem(s_shooter);
-
 
     public RobotContainer() {
         // TODO change to specific auto positioning
@@ -209,7 +212,7 @@ public class RobotContainer {
         driver0.leftTrigger().toggleOnTrue(c_zeroHome);
         driver0.leftTrigger().toggleOnFalse(c_teleop);
         
-        driver0.a().onTrue(c_visionAlign); 
+        driver0.a().onTrue(c_pose_align); 
         driver0.a().onFalse(c_teleop);
 
         // Idle while the robot is disabled. This ensures the configured

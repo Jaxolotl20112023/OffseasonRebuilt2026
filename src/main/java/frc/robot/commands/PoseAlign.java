@@ -3,6 +3,7 @@ package frc.robot.commands;
 // import javax.swing.text.Utilities;
 
 import static edu.wpi.first.units.Units.RotationsPerSecond;
+import static edu.wpi.first.units.Units.derive;
 
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants;
@@ -52,6 +54,8 @@ public class PoseAlign extends Command{
     private double x_speed;
     private double y_speed;
     private double r_speed;
+    private double x_distance; 
+    private double y_distance; 
 
 
     public PoseAlign(CommandSwerveDrivetrain drivetrain, CommandXboxController driver0) { 
@@ -97,11 +101,13 @@ public class PoseAlign extends Command{
             .withRotationalRate(r_speed))
             .execute();
 
+        setSmartDashboard(); 
+
     }
 
     public double get_angle_robot_hub() { 
-        double x_distance = robotPose.getX() - hubPose.getX(); 
-        double y_distance = robotPose.getY() - hubPose.getY(); 
+        x_distance = robotPose.getX() - hubPose.getX(); 
+        y_distance = robotPose.getY() - hubPose.getY(); 
 
         return ally.get() == Alliance.Red ? Math.atan(y_distance/x_distance) : Math.atan(x_distance/y_distance); 
     }
@@ -111,5 +117,12 @@ public class PoseAlign extends Command{
         y_speed = Utilities.polynomialAccleration(x_input) * MaxSpeed * 0.8; 
         r_speed = c_yawPID.calculate(Utilities.processYaw(drivetrain.getPigeon2().getYaw().getValueAsDouble())); 
 
+    }
+
+    public void setSmartDashboard() {
+        SmartDashboard.putNumber("Robot to hub angle: ", robot_hub_angle); 
+        SmartDashboard.putNumber("Robot Yaw Setpoint: ", c_yawPID.getSetpoint());    
+        SmartDashboard.putNumber("X-distance robot -> hub", x_distance);
+        SmartDashboard.putNumber("Y-distance robot -> hub", y_distance);
     }
  }

@@ -21,6 +21,8 @@ public class Constants {
         public static final Translation2d m_back_right = new Translation2d(Units.inchesToMeters(-14.5),Units.inchesToMeters(-14.5));
 
         public static final int pigeon_id = 0;
+
+        public static final double swerve_gear_reduction = 6.11; 
     }
 
     public class Shooter {
