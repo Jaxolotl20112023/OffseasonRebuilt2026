@@ -72,7 +72,7 @@ public class PoseAlign extends Command{
         y_speed = 0; 
         r_speed = 0; 
 
-        c_yawPID = new PIDController(Constants.Swerve.kP, Constants.Swerve.kI, Constants.Swerve.kD); 
+        c_yawPID = new PIDController(Constants.Swerve.kSwerveP, Constants.Swerve.kSwerveI, Constants.Swerve.kSwerveD); 
         c_yawPID.enableContinuousInput(0, 360);
 
         addRequirements(drivetrain);
