@@ -293,31 +293,31 @@ public class RobotContainer {
     // }
 
     private void configureAuto() {
-        NamedCommands.registerCommand("Intake Balls", c_intakeCommand.setIntakeState(IntakeStates.INTAKE));
-        NamedCommands.registerCommand("Intake Feed Out", c_intakeCommand.setIntakeState(IntakeStates.OUTAKE));
-        NamedCommands.registerCommand("Intake Home", c_intakeCommand.setIntakeState(IntakeStates.HOME));
-        NamedCommands.registerCommand("Intake Start Pos", c_intakeCommand.setIntakeState(IntakeStates.START));
-        NamedCommands.registerCommand("Intake Stop", c_intakeCommand.setIntakeState(IntakeStates.STOP));
-        NamedCommands.registerCommand("Intake Mega Home", c_intakeCommand.setIntakeState(IntakeStates.GIGA_HOME));
-        NamedCommands.registerCommand("Intake Push In", c_intakeCommand.setIntakeState(IntakeStates.PUSH_IN));
+        // NamedCommands.registerCommand("Intake Balls", c_intakeCommand.setIntakeState(IntakeStates.INTAKE));
+        // NamedCommands.registerCommand("Intake Feed Out", c_intakeCommand.setIntakeState(IntakeStates.OUTAKE));
+        // NamedCommands.registerCommand("Intake Home", c_intakeCommand.setIntakeState(IntakeStates.HOME));
+        // NamedCommands.registerCommand("Intake Start Pos", c_intakeCommand.setIntakeState(IntakeStates.START));
+        // NamedCommands.registerCommand("Intake Stop", c_intakeCommand.setIntakeState(IntakeStates.STOP));
+        // NamedCommands.registerCommand("Intake Mega Home", c_intakeCommand.setIntakeState(IntakeStates.GIGA_HOME));
+        // NamedCommands.registerCommand("Intake Push In", c_intakeCommand.setIntakeState(IntakeStates.PUSH_IN));
 
 
-        NamedCommands.registerCommand("Shoot 120 IN", c_shooterCommand.setShooterState(ShooterStates.IN_120));
-        NamedCommands.registerCommand("Shoot 100 IN", c_shooterCommand.setShooterState(ShooterStates.CLIMB_TO_CENTER));
-        NamedCommands.registerCommand("Shoot Stop", c_shooterCommand.setShooterState(ShooterStates.STOP));
+        // NamedCommands.registerCommand("Shoot 120 IN", c_shooterCommand.setShooterState(ShooterStates.IN_120));
+        // NamedCommands.registerCommand("Shoot 100 IN", c_shooterCommand.setShooterState(ShooterStates.CLIMB_TO_CENTER));
+        // NamedCommands.registerCommand("Shoot Stop", c_shooterCommand.setShooterState(ShooterStates.STOP));
 
-        NamedCommands.registerCommand("Index Balls", c_indexCommand.setIndexState(IndexStates.AUTO_INDEX));
-        NamedCommands.registerCommand("Index Reverse", c_indexCommand.setIndexState(IndexStates.REVERSE));
-        NamedCommands.registerCommand("Index Stop", c_indexCommand.setIndexState(IndexStates.STOP));
-        NamedCommands.registerCommand("Index Auto Balls", c_indexCommand.setIndexState(IndexStates.AUTO_INDEX));
-        NamedCommands.registerCommand("Auto IN", c_shooterCommand.setShooterState(ShooterStates.AUTO_IN));
+        // NamedCommands.registerCommand("Index Balls", c_indexCommand.setIndexState(IndexStates.AUTO_INDEX));
+        // NamedCommands.registerCommand("Index Reverse", c_indexCommand.setIndexState(IndexStates.REVERSE));
+        // NamedCommands.registerCommand("Index Stop", c_indexCommand.setIndexState(IndexStates.STOP));
+        // NamedCommands.registerCommand("Index Auto Balls", c_indexCommand.setIndexState(IndexStates.AUTO_INDEX));
+        // NamedCommands.registerCommand("Auto IN", c_shooterCommand.setShooterState(ShooterStates.AUTO_IN));
         
 
-        // Put all of the auto routines onto the Smartdashboard
+        // // Put all of the auto routines onto the Smartdashboard
         m_chooser = AutoBuilder.buildAutoChooser("Right Auto"); 
         SmartDashboard.putData(m_chooser);
 
-        // Warmup PathPlanner to avoid Java pauses
+        // // Warmup PathPlanner to avoid Java pauses
         FollowPathCommand.warmupCommand().schedule();
     }
 

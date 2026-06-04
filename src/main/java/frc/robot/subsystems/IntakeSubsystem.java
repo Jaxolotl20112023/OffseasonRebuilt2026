@@ -58,6 +58,7 @@ public class IntakeSubsystem extends SubsystemBase {
         m_pivot = new SparkMax(Constants.Intake.kPivotID, MotorType.kBrushless);
         pivotEncoder = new CANcoder(Constants.Intake.kEncoderID);
         
+        
         // m_leftPivot = new SparkMax(Constants.Intake.kLeftPivotID, MotorType.kBrushless);
         // leftPivotEncoder = new CANcoder(Constants.Intake.kLeftEncoderID); 
 
@@ -80,6 +81,7 @@ public class IntakeSubsystem extends SubsystemBase {
         disable = false;
         if(disable) {
             disableSubsystem();
+            
         }
     }
 
