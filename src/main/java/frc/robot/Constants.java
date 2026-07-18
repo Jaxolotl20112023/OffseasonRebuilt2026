@@ -77,7 +77,7 @@ public class Constants {
         // public static final int kMax = -208;
 
         // PID values
-        public static final double kIntakeP = 0.09; // 0.09
+        public static final double kIntakeP = 0.0267; // 0.09
         public static final double kIntakeI = 0;
         public static final double kIntakeD = 0;
     

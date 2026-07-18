@@ -59,6 +59,7 @@ public class States {
         AUTO_IN(57.5,28.5, Units.inchesToMeters(67)),
         // New auto states for left auto
         SHOOT_FAR(15, 47.5, Units.inchesToMeters(6700)),
+        SHORT(5,7,Units.inchesToMeters(67)),
         // ah
         REVERSE_SHOOT(0,-100,0); 
         
