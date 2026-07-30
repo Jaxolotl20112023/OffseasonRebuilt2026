@@ -94,9 +94,11 @@ public class PoseAlign extends Command{
     public void initialize() {
         robotPose = drivetrain.getStateCopy().Pose; 
         robotRotation = robotPose.getRotation().getDegrees();
-        robot_hub_angle = get_angle_robot_hub();
-        
-        c_yawPID.setSetpoint((-robot_hub_angle) + (robotRotation));
+        robot_hub_angle = robotPose.getX() < Constants.FieldPoseConstants.hubPose.getX() 
+            ? -get_angle_robot_hub()
+            : get_angle_robot_hub();
+
+        c_yawPID.setSetpoint(robot_hub_angle);
     }
 
     @Override
