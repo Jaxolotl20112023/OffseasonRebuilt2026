@@ -53,6 +53,7 @@ import frc.robot.subsystems.AddressableLEDSubsystem;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.IndexSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.PoseAlignSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
 import frc.robot.subsystems.Simulation;
 import frc.robot.subsystems.VisionSubsystem;
@@ -94,6 +95,7 @@ public class RobotContainer {
     private final VisionSubsystem limelight = new VisionSubsystem(drivetrain, "limelight-four");
     // private final LimeLightAlign c_visionAlign = new LimeLightAlign(drivetrain, driver0);
     private final PoseAlign c_pose_align = new PoseAlign(drivetrain, driver0); 
+    private final PoseAlignSubsystem s_pose_align = new PoseAlignSubsystem(drivetrain); 
     private final Simulation simulation = new Simulation(drivetrain); 
 
     private final PivotShake c_pivotShake = new PivotShake(s_intake);
@@ -211,8 +213,8 @@ public class RobotContainer {
         // Return to normal after positioning
         driver0.leftTrigger().toggleOnTrue(c_zeroHome);
         driver0.leftTrigger().toggleOnFalse(c_teleop);
-        
-        driver0.a().onTrue(c_pose_align); 
+
+        driver0.a().onTrue(c_pose_align);
         driver0.a().onFalse(c_teleop);
 
         // Idle while the robot is disabled. This ensures the configured

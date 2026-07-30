@@ -7,6 +7,8 @@ import static edu.wpi.first.units.Units.derive;
 
 import java.util.Optional;
 
+import org.opencv.core.Mat;
+
 import com.ctre.phoenix6.swerve.SwerveRequest;
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
 
@@ -16,6 +18,7 @@ import static edu.wpi.first.units.Units.RadiansPerSecond;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -30,7 +33,7 @@ import frc.lib.util.Utilities;
 public class PoseAlign extends Command{
     
     private Pose2d robotPose; 
-    private final Rotation2d robotRotation; 
+    private double robotRotation; 
     private final Pose2d hubPose; 
     private final Rotation2d hubRotation; 
     private final CommandSwerveDrivetrain drivetrain; 
@@ -47,6 +50,8 @@ public class PoseAlign extends Command{
             .withDriveRequestType(DriveRequestType.OpenLoopVoltage);
 
     private final Optional<Alliance> ally; 
+    private final boolean red_alliance;
+    private boolean setPreSets = true; 
 
     private double robot_hub_angle;
     private double x_input; 
@@ -63,8 +68,10 @@ public class PoseAlign extends Command{
         this.driver0 = driver0; 
 
         ally = DriverStation.getAlliance(); 
+        red_alliance = ally.get() == Alliance.Red ? true : false; 
+
         robotPose = drivetrain.getStateCopy().Pose;
-        robotRotation = robotPose.getRotation();
+        robotRotation = robotPose.getRotation().getDegrees();
 
         hubPose = Constants.FieldPoseConstants.hubPose; 
         hubRotation = hubPose.getRotation(); 
@@ -84,15 +91,22 @@ public class PoseAlign extends Command{
     }
 
     @Override
-    public void execute() {
-
+    public void initialize() {
         robotPose = drivetrain.getStateCopy().Pose; 
+        robotRotation = robotPose.getRotation().getDegrees();
+        robot_hub_angle = get_angle_robot_hub();
+        
+        c_yawPID.setSetpoint((-robot_hub_angle) + (robotRotation));
+    }
+
+    @Override
+    public void execute() {
+        robotPose = drivetrain.getStateCopy().Pose; 
+        robotRotation = robotPose.getRotation().getDegrees();
         robot_hub_angle = get_angle_robot_hub();
 
         x_input = -driver0.getLeftX();
         y_input = -driver0.getLeftY();
-
-        c_yawPID.setSetpoint(robot_hub_angle);
         
         set_swerve_speeds();
 
@@ -101,15 +115,15 @@ public class PoseAlign extends Command{
             .withRotationalRate(r_speed))
             .execute();
 
-        setSmartDashboard(); 
+        setSmartDashboard();
 
     }
 
     public double get_angle_robot_hub() { 
-        x_distance = robotPose.getX() - hubPose.getX(); 
-        y_distance = robotPose.getY() - hubPose.getY(); 
+        x_distance = Math.abs(robotPose.getX() - hubPose.getX()); 
+        y_distance = Math.abs(robotPose.getY() - hubPose.getY()); 
 
-        return ally.get() == Alliance.Red ? Math.atan(y_distance/x_distance) : Math.atan(x_distance/y_distance); 
+        return red_alliance ? Units.radiansToDegrees(Math.atan(y_distance/x_distance)) : Units.radiansToDegrees(Math.atan(x_distance/y_distance)); 
     }
 
     public void set_swerve_speeds() {
@@ -124,5 +138,11 @@ public class PoseAlign extends Command{
         SmartDashboard.putNumber("Robot Yaw Setpoint: ", c_yawPID.getSetpoint());    
         SmartDashboard.putNumber("X-distance robot -> hub", x_distance);
         SmartDashboard.putNumber("Y-distance robot -> hub", y_distance);
+        SmartDashboard.putNumber("Robot Pose X", robotPose.getX());
+        SmartDashboard.putNumber("Robot Pose Y", robotPose.getY());
+
+        SmartDashboard.putNumber("Rotation of Robot", robotRotation);
+        SmartDashboard.putBoolean("Red-Alliance", red_alliance);
+        SmartDashboard.putBoolean("Set Pre Sets", setPreSets);
     }
  }
